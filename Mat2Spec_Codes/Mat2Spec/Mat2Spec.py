@@ -105,7 +105,7 @@ class GAT_Crystal(MessagePassing):
         # self.att: (1,heads,2*out_features)
 
         alpha = F.softplus(self.bn1(alpha))
-        alpha = softmax(alpha, edge_index_i, size_i) # [num_edge, num_head]
+        alpha = softmax(alpha, edge_index_i, num_nodes=size_i) # [num_edge, num_head]
         #alpha = softmax(alpha, edge_index_i) # [num_edge, num_head]
         alpha = self.dropout(alpha)
 
@@ -235,6 +235,7 @@ class GNN(torch.nn.Module):
 class Mat2Spec(nn.Module):
     def __init__(self, args, NORMALIZER):
         super(Mat2Spec, self).__init__()
+        import pdb; pdb.set_trace()
         n_heads = args.num_heads
         number_neurons = args.num_neurons
         number_layers = args.num_layers

@@ -1,4 +1,4 @@
-CUDA_VISIBLE_DEVICES=0 python test_Mat2Spec.py \
+CUDA_VISIBLE_DEVICES=0 python -m pdb test_Mat2Spec.py \
 --concat_comp '' \
 --Mat2Spec-loss-type 'MAE' \
 --label_scaling 'standardized' \
